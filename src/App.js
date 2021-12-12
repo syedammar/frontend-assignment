@@ -28,9 +28,9 @@ const App = () => {
 	}, [searchKeyword]);
 
 	const getMovieList = async (searchValue) => {		
-		let url = `${BASE_URL}/movie/upcoming?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`;
+		let url = `${BASE_URL}/movie/upcoming?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}`;
 		if (searchValue) {
-			url = `${BASE_URL}/search/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US&page=1&include_adult=false&query=${searchValue}`;
+			url = `${BASE_URL}/search/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&language=en-US&page=1&include_adult=false&query=${searchValue}`;
 		}
 		setLoading(true);		
 		await axios.get(url)
@@ -52,7 +52,7 @@ const App = () => {
 	}
 
 	const modalPopUp = () => {
-		const imageBaseUrl = `${SECURE_IMAGE_BASE_URL}${BACKDROP_SIZE}`;
+		const imageBaseUrl = `${SECURE_IMAGE_BASE_URL}/${BACKDROP_SIZE}`;
 		let movieRating = movieDetail.vote_average;
 		if (!isNaN(movieRating)) {
 			movieRating = movieRating.toFixed(1);

@@ -3,7 +3,7 @@ import { SECURE_IMAGE_BASE_URL, POSTER_SIZE} from '../utils/constants';
 import noImage from '../images/no-image.png';
 
 const MovieList = (props) => {
-	const imageBaseUrl = `${SECURE_IMAGE_BASE_URL}${POSTER_SIZE}`;
+	const imageBaseUrl = `${SECURE_IMAGE_BASE_URL}/${POSTER_SIZE}`;
 
 	return (
 		props.movies.map((movie) => {
